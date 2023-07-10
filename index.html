@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="shortcut icon" href="#" />
+    <title>El Pollo Loquito</title>
+    <script src="./classes/drawableObject.class.js"></script>
+    <script src="./classes/status-bar-health.class.js"></script>
+    <script src="./classes/status-bar-bottle.class.js"></script>
+    <script src="./classes/status-bar-coins.class.js"></script>
+    <script src="./classes/status-bar-endboss.class.js"></script>
+    <script src="./classes/keyboard.class.js"></script>
+    <script src="./js/game.js"></script>
+    <script src="./classes/world.class.js"></script>
+    <script src="./classes/movableObject.class.js"></script>
+    <script src="./classes/throwableObject.class.js"></script>
+    <script src="./classes/collectableObject.class.js"></script>
+    <script src="./classes/collectableBottleObject.class.js"></script>
+    <script src="./classes/character.class.js"></script>
+    <script src="./classes/chicken.class.js"></script>
+    <script src="./classes/smallChicken.class.js"></script>
+    <script src="./classes/cloud.class.js"></script>
+    <script src="./classes/background.object.class.js"></script>
+    <script src="./classes/endboss.class.js"></script>
+    <script src="./classes/level.class.js"></script>
+    <script src="./levels/level1.js"></script>
+  </head>
+  <body>
+    <div id="content">
+      <!-- Canvas -->
+      <canvas id="canvas" width="720" height="480"></canvas>
+
+      <!-- StartScreen -->
+      <div id="startScreenContainer">
+        <img
+          id="startScreenImg"
+          src="img/9_intro_outro_screens/start/startscreen_1.png"
+          alt=""
+        />
+    <span id="playBtn" onclick="init()">Play</span>
+      </div>
+
+      <!-- Buttons Desktop -->
+        <div id="controlsBtn" class="buttonContainer sizeBtnInfo">
+          <img
+            src="./img/icons/instructions.png"
+            alt=""
+            onclick="openControls()"
+          />
+        </div>
+
+        <div id="muteBtn" class="buttonContainer">
+          <img onclick="mute()" src="./img/icons/mute.png" alt="" />
+        </div>
+
+        <div id="fullscreenBtn" class="buttonContainer sizeBtnFullscreen d-none">
+          <img
+            onclick="showFullscreen()"
+            id="fullscreen"
+            src="./img/icons/fullscreen.png"
+            alt=""
+          />
+        </div>
+
+        <!-- Invulnerability -->
+        <span id="invulnerable" class="d-none">INVULNERABLE!</span>
+
+      <!-- Mobile Version -->
+      <div id="controls-mobile" class="d-none">
+        <div class="upperPanel">
+          <button id="btn-mute" class="mobileBtns">
+            <img id="muteImg" src="./img/icons/mute.png" alt="" onclick="mute()" />
+          </button>
+
+          <button id="btn-controls" class="mobileBtns">
+            <img src="./img/icons/instructions.png" alt="" onclick="openControls()" />
+          </button>
+
+        </div>
+        <div class="panel">
+          <div class="panel-wrapper">
+            <button id="btn-left" class="mobileBtns d-none">
+              <img src="./img/icons/arrowLeftBlack.png" alt="" />
+            </button>
+            <button id="btn-right" class="mobileBtns d-none">
+              <img src="./img/icons/arrowRightBlack.png" alt="" />
+            </button>
+          </div>
+          <div class="panel-wrapper">
+            <button id="btn-jump" class="mobileBtns d-none">
+              <img src="./img/icons/arrowUpBlack.png" alt="" />
+            </button>
+            <button id="btn-throw" class="mobileBtns d-none">
+              <img src="./img/icons/bottleThrow.png" alt="" />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Instructions -->
+      <div id="instructions" class="d-none">
+        <div id="mobileLeft" class="keyInstructions">
+          <span>Walk left</span>
+          <img src="./img/icons/arrowLeftWhite.png" alt="" />
+        
+        </div>
+        <div id="mobileRight" class="keyInstructions">
+          <span>Walk right</span>
+          <img src="./img/icons/arrowRightWhite.png" alt="" />
+        </div>
+        <div id="mobileJump" class="keyInstructions">
+          <span>Jumping</span>
+          <img src="./img/icons/arrowUpWhite.png" alt="" />
+        </div>
+        <div id="mobileThrow" class="keyInstructions">
+          <span>Throwing bottles</span>
+          <span id="throwBottle">D</span>
+        </div>
+        <p>
+          Collect coins and enjoy invulnerability for 3 seconds!
+          <br />
+          <br />
+          Collect as many yellow chickens as possible and recover<br> up to 20 health power!
+          <br />
+          <br />
+          Kill the brown chickens by jumping on them!
+          <br />
+          <br />
+          Collect as many bottles as possible to hit three times<br> the big chicken enemy in the end
+          and win the game!
+        </p>
+        <span id="closeInstructions" onclick="closeControls()">X</span>
+      </div>
+
+      <!-- Endscreen won -->
+       <div id="endScreenContainerWon">
+         <img id="endScreenImg" src="img/9_intro_outro_screens/game_over/won.png" alt=""/>
+          <span id="restartBtn" class="buttonContainer" onclick="init()">Restart</span> 
+       </div>
+
+      <!-- Endscreen lost-->
+      <div id="endScreenContainerLost">
+        <img id="endScreenImg" src="img/9_intro_outro_screens/game_over/oh no you lost!.png" alt="" />
+        <span id="restartBtn" class="buttonContainer" onclick="init()">Restart</span>
+      </div>
+
+       <!-- Rotate Device Message -->
+       <div id="bg-rotate-device"> <span id="rotate-device-text">Please Rotate Device</span>
+  </div>
+  </body>
+</html>

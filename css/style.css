@@ -1,0 +1,553 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'fried-chicken', Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    letter-spacing: 1px;
+    margin: 0;
+    background-image: url("../img/5_background/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    user-select: none;
+    overflow: hidden;
+}
+
+p{
+    text-align: center;
+}
+
+#content {
+    position: relative;
+    width: 720px;
+    height: 480px;
+    border-radius: 0px;
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.802);
+}
+
+#canvas {
+    display: block;
+    border-radius: 0px;
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.802);
+}
+
+#startScreenContainer {
+    position: absolute;
+    top: 0;
+}
+
+#startScreenImg {
+    width: 720px;
+    height: 480px;
+    border-radius: 0px;
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.802);
+}
+
+#endScreenContainerWon {
+    display: none;
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+    
+}
+
+#endScreenContainerLost {
+    display: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#endScreenImg {
+    width: 720px;
+    height: 480px;
+    border-radius: 0px;
+
+}
+
+/* Buttons */
+.buttonContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 2px 2px;
+    border:2px solid black;
+    box-shadow: 2px 2px 5px 1px #2c2c2c;
+    border-radius: 0px;
+    background-color: #ffa400;
+    transition: all .15s ease-in-out;
+}
+
+.buttonContainer:hover {
+    scale: 1.2;
+    cursor: pointer;
+    box-shadow: 4px 2px 8px 2px #2c2c2c;
+}
+
+#playBtn {
+    position: absolute;
+    top: 418px;
+    right: 340px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    padding: 2px 20px;
+    border:2px solid black;
+    box-shadow: 2px 1px 5px 1px #2c2c2c;
+    border-radius: 0px;  /*10px*/
+    background-color: #ffa400;
+    font-size:30px;
+}
+
+#playBtn:hover {
+    scale: 1.3;
+    cursor: pointer;
+    box-shadow: 4px 2px 8px 2px #2c2c2c;
+}
+
+#restartBtn {
+    position: absolute;
+    top: 430px;
+    right: 305px;
+    font-size: 28px;
+    padding: 2px 10px !important;
+}
+
+#controlsBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+}
+
+.sizeBtnInfo img{
+    width:33px;
+    height:33px;
+
+}
+
+#muteBtn {
+    position: absolute;
+    top: 10px;
+    right: 60px;
+    z-index: 2;
+}
+
+#muteMusicBtn {
+    position: absolute;
+    top: 10px;
+    right: 110px;
+    z-index: 2;
+}
+
+#fullscreenBtn {
+    position: absolute;
+    top: 430px;
+    right: 10px;
+    z-index: 2;
+}
+
+#invulnerable {
+    position: absolute;
+    letter-spacing: 3px;
+    top: 80px;
+    right: 30%;
+    font-size: 32px;
+    font-weight: normal;
+    color: rgb(255, 196, 2)
+}
+
+/* Game Controls */
+#instructions {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background: linear-gradient(rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.4)), url("/img/5_background/background2.jpg") 76% -9%;
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-repeat: no-repeat;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    width: 720px;
+    height: 480px;
+    z-index: 2;
+    border-radius: 0px;
+    color: white;
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.8);
+}
+
+.keyInstructions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 35%;
+    margin-bottom: 5px;
+}
+
+.keyInstructions img {
+    height: 15px;
+    width: 15px;
+}
+
+#instructions p {
+    margin-top: 2%;
+}
+
+#throwBottle {
+    font-family: arial;
+    font-weight: normal;
+    font-size: 25px;
+    font-weight: 900;
+    margin-right: -2%;
+}
+
+#closeInstructions {
+    position: absolute;
+    top: 2px;
+    right: 13px;
+    cursor: pointer;
+    font-size: 36px;
+}
+
+.d-none {
+    display: none !important;
+}
+
+#bg-rotate-device {
+    display: none;
+}
+
+/* Mobile Version */
+.mobileBtns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 2px solid black;
+    /* border-radius: 100%; */
+    padding: 5px;
+    cursor: pointer;
+}
+
+ #controls-mobile {
+    position: absolute;
+    top: 0;
+}
+
+
+@media only screen and (max-width: 721px) {
+
+    #content {
+        width: 95vw;
+        height: auto
+    }
+
+    canvas {
+        width: 100%;
+    }
+
+    #startScreenContainer {
+        width: 100%;
+    }
+
+    #startScreenContainer img {
+        width: 100%;
+    }
+
+    #fullscreenBtn {
+        position: absolute;
+        top: 85%;
+    }
+
+    .buttonContainer {
+        display: none;
+    }
+
+    .buttonContainer img {
+        height: 20px;
+        width: 20px;
+    }
+
+    #instructions {
+        top: -20px;
+        width: 100%;
+        height: 60vh;
+        padding: 0px 10px 0px 10px;
+        box-sizing: border-box;
+    }
+
+    #endScreenContainerWon {
+        width: 100%;
+        height: 100%;
+    }
+
+    #endScreenContainerLost {
+        width: 100%;
+        height: 100%;
+    }
+
+    #endScreenContainer img {
+        width: 100%;
+        height: 100%;
+    }
+
+    #restartBtn {
+        top: 82%;
+        font-size: 18px;
+        padding: 2px 20px 2px 20px !important;
+        display: flex;
+        right: 37%;
+    }
+
+    #playBtn {
+        top: 87%;
+        right: 36%;
+    }
+
+    #controls-mobile {
+        display: flex !important;
+        position: absolute;
+        width: 80%;
+        height: 480px;
+        top: 0;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .panel {
+        display: flex;
+        width: 100%;
+    }
+
+    .upperPanel {
+        position: absolute;
+        top: 5px;
+        right: 100px;
+        display: flex;
+        height: 45px;
+        width: 5px;
+    }
+
+    .upperPanel button {
+        height: 32px;
+        width: 32px;
+        margin-left: 21px;
+        margin-right: 10px;
+    }
+
+    .upperPanel img {
+        height: 24px;
+        width: 24px;
+    }
+
+    #btn-left {
+        position: absolute;
+        top: 60%;
+    }
+
+    #btn-right {
+        position: absolute;
+        top: 60%;
+        left: 20%;
+    }
+
+    #btn-jump {
+        position: absolute;
+        top: 60%;
+        right: 20%;
+    }
+
+    #btn-throw {
+        position: absolute;
+        top: 60%;
+        right: 0%;
+    }
+
+    #bg-rotate-device {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+        position: fixed;
+        background-color: black;
+    }
+
+    #rotate-device-text {
+        position:absolute;
+        left:0;
+        right:0;
+        text-align: center;
+        font-size: 150%;
+        width:100%;
+        font-weight: bold;
+        color: rgb(255, 196, 2);
+        font-family: fried-chicken;
+    } 
+}
+
+@media only screen and (max-height: 480px) {
+    #content {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    #canvas {
+        height: 100vh;
+        width: 100vw;
+        border-radius: 0px;
+    }
+
+    #startScreenContainer {
+        display: flex;
+        position: absolute;
+        top: 0;
+    }
+
+    #startScreenContainer img{
+        border-radius: 0px;
+    }
+
+    #endScreenContainer {
+        position: absolute;
+        top: 0;
+        width: 100vh;
+        height: 100vh;
+    }
+
+    #endScreenContainer img {
+        height: 100vh;
+        width: 100vw;
+    }
+
+    #endScreenImg {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .buttonContainer {
+        display: none;
+    }
+
+    #instructions {
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        padding-top: 2%;
+        box-sizing: border-box;
+    }
+
+    #instructions p {
+        margin-top: -12px;
+        font-size: 6vw;
+        font-size: 6vh;
+    }
+
+    .keyInstructions{
+        font-size: 6vw;
+        font-size: 6vh;
+    }
+
+    #restartBtn {
+        position: absolute;
+        top: 50%;
+        left: 42%;
+        display: flex;
+        justify-content: center;
+        font-size: 28px;
+        padding: 9px 10px !important;
+    }
+
+    #playBtn {
+        top: 46%;
+        left: 41%;
+        width: 77px;
+        height: 64px;
+        font-size: 55px;
+    }
+
+    #controls-mobile {
+        display: flex !important;
+        position: absolute;
+        width: 80%;
+        height: 360px;
+        top: 10px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .panel {
+        display: flex;
+        width: 100%;
+    }
+
+    .upperPanel {
+        position: absolute;
+        top: 5px;
+        right: 7%;
+        display: flex;
+        height: 45px;
+        width: 5px;
+    }
+
+    .upperPanel button {
+        height: 38px;
+        width: 38px;
+        margin-left: 21px;
+        margin-right: 10px;
+    }
+
+    .upperPanel img {
+        height: 32px;
+        width: 32px;
+    }
+
+    #btn-left {
+        position: fixed;
+        top: 85%;
+    }
+
+    #btn-right {
+        position: fixed;
+        top: 85%;
+        left: 12%;
+    }
+
+    #btn-jump {
+        position: fixed;
+        top: 85%;
+        left: 21%;
+    }
+
+    #btn-throw {
+        position: fixed;
+        top: 85%;
+        right: 8%;
+    }
+
+    #btn-throw img{
+    height:35px;
+    width:35px;
+    }
+
+    #startScreenImg {
+        height: 100vh;
+        width: 100vw;
+    }
+}
